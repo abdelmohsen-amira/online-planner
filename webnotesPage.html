@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="webStyle.css">
+<title>weekly task manager</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="webHeader">
+  <h1>welcome to your weekly task manager</h1>
+  <p>. . . dreams don't work unless you do . . .</p>
+</div>
+
+<div class="webTopnav">
+  <a href="webcalPage.html">home</a>
+  <a href="webfocusPage.html">focus zone</a>
+  <a href="webnotesPage.html">notes</a>
+</div>
+<!-- Left-hand column contains text for breathing exercise for easy accessibility. -->
+<div class="webRow">
+  <div class="column side">
+    <h2>7/11 breathing exercise</h2><br>
+      <p>breathe in for 7 seconds</p><br>
+      <p>breathe out for 11 seconds</p><br>
+      <p>repeat for 12 to 15 repetitions</p>
+  </div>
+<!-- Table containing text area for client notes. Contains buttons and text field to download and upload txt files. -->
+  <div class="column middle">
+    <h2>free write</h2>
+      <table>
+        <tr><td>text to save:</td></tr>
+        <tr>
+            <td colspan="4">
+                <textarea id="inputSavedNotes" cols="98" rows="20"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>filename to save as:</td>
+            <td><input id="inputSavedName"></input></td>
+            <td><button onclick="saveTextAsFile()">save text to file</button></td>
+        </tr>
+        <tr>
+            <td>select a file to load:</td>
+            <td><input type="file" id="fileToLoad"></td>
+            <td><button onclick="loadFileAsText()">load selected file</button><td>
+        </tr>
+    </table> 
+</div>
+  
+<!-- Right-hand column contains text for breathing exercise for easy accessibility. -->
+  <div class="column side">
+    <h2>hot chocolate breathing exercise</h2>
+    <br><p>hold up your hands as if you're holding a mug of hot chocolate right under your face</p>
+    <br><p>imagine that you are smelling the hot chocolate by taking a deep breath</p>
+    <br><p>blow out the hot chocolate by exhaling</p>
+    <br><p>repeat</p>
+  </div>
+</div>
+  
+<script src="webnotesScript.js"></script>
+</body>
+</html>

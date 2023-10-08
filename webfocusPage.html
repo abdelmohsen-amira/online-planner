@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="webStyle.css">
+<title>Task Manager</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="webHeader">
+  <h1>welcome to your weekly task manager</h1>
+  <p>. . . dreams don't work unless you do . . .</p>
+</div>
+
+<div class="webTopnav">
+  <a href="webcalPage.html">home</a>
+  <a href="webfocusPage.html">focus zone</a>
+  <a href="webnotesPage.html">notes</a>
+</div>
+
+<!-- Spotify API for focus playlist through an embedded link -->
+
+<div class="webRow">
+  <div class="column side">
+    <h2>focus while working</h2><br>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3hPeTyReRDrbVqtUHvwfSp?utm_source=generator" 
+              width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+  </div>
+  
+<div class="column middle">
+
+
+<!-- Code for the the span elements allow the time to be editable. -->
+<div class="container">
+	<div class="edgeOfTimer">
+		<div class="timer">
+			<div id="time">
+				<span id="minutes">25</span>
+				<span id="colon">:</span>
+				<span id="seconds">00</span>
+			</div>
+			<div id="startAndStop">start</div>
+			<span id="edit">edit</span>
+		</div>
+	</div>
+</div>
+
+</div>
+  
+<!-- Spotify API for motivational playlist through an embedded link -->
+  <div class="column side">
+    <h2>get motivated while taking a break</h2><br>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdxcBWuJkbcy?utm_source=generator" 
+              width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+  </div>
+</div>
+<script src="webfocusScript.js"></script>
+</body>
+</html>

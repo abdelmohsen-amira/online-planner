@@ -1,0 +1,410 @@
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="webStyle.css">
+<title>Task Manager</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="webHeader">
+  <h1>welcome to your weekly task manager</h1>
+  <p>. . . dreams don't work unless you do . . .</p>
+</div>
+
+<div class="webTopnav">
+  <a href="webcalPage.html">home</a>
+  <a href="webfocusPage.html">focus zone</a>
+  <a href="webnotesPage.html">notes</a>
+</div>
+<!-- Left-hand column for displaying the to-do list. -->
+<div class="webRow">
+  <div class="column side">
+    <h2>to-do list</h2>
+<p id="outputTasks"></p>
+  </div>
+  
+<!-- Drop down menus for adding a day and adding a time -->
+  <div class="column middle">
+   <h2>weekly calendar</h2><br>
+<p id="addTask">add a task</p><br>
+<p>day:   
+<select id="daySelector">    
+  <option value="1">sunday</option>
+  <option value="2">monday</option>
+  <option value="3">tuesday</option>
+  <option value="4">wednesday</option>
+  <option value="5">thursday</option>
+  <option value="6">friday</option>
+  <option value="7">saturday</option>
+</select>
+</p>
+
+  
+<p>time:   
+<select id="timeSelector">    
+  <option value="8am">8am</option>
+  <option value="8:30am">8:30am</option>
+  <option value="9am">9am</option>
+  <option value="9:30am">9:30am</option>
+  <option value="10am">10am</option>
+  <option value="10:30am">10:30am</option>
+  <option value="11am">11am</option>
+  <option value="11:30am">11:30am</option>
+  <option value="12pm">12pm</option>
+  <option value="12:30pm">12:30pm</option>
+  <option value="1pm">1pm</option>
+  <option value="1:30pm">1:30pm</option>
+  <option value="2pm">2pm</option>
+  <option value="2:30pm">2:30pm</option>
+  <option value="3pm">3pm</option>
+  <option value="3:30pm">3:30pm</option>
+  <option value="4pm">4pm</option>
+  <option value="4:30pm">4:30pm</option>
+  <option value="5pm">5pm</option>
+  <option value="5:30pm">5:30pm</option>
+  <option value="6pm">6pm</option>
+  <option value="6:30pm">6:30pm</option>
+  <option value="7pm">7pm</option>
+  <option value="7:30pm">7:30pm</option>
+  <option value="8pm">8pm</option>
+</select>
+</p>
+      
+<!-- Text input fields for the task description and subject. -->
+<p>task description: <input type="text" id="taskInfo"></p>
+<p>subject: <input type="text" id="Subject"></p>
+      
+  <!-- Button to add task and its day, time, description, and subject to the calendar and to-do list. -->
+<p>
+    <br><button type="button" id="setProperties" onclick="setProperties()">submit this task</button><br>
+</p>  
+<br>
+<!-- Drop down menus for removing a task using its day and time slot. -->
+<p id="removeTask">delete a task</p><br>
+<p>day: 
+<select id="daySelectorD">     
+  <option value="1">sunday</option>
+  <option value="2">monday</option>
+  <option value="3">tuesday</option>
+  <option value="4">wednesday</option>
+  <option value="5">thursday</option>
+  <option value="6">friday</option>
+  <option value="7">saturday</option>
+</select>
+</p>
+<p>time:   
+<select id="timeSelectorD">    
+  <option value="8am">8am</option>
+  <option value="8:30am">8:30am</option>
+  <option value="9am">9am</option>
+  <option value="9:30am">9:30am</option>
+  <option value="10am">10am</option>
+  <option value="10:30am">10:30am</option>
+  <option value="11am">11am</option>
+  <option value="11:30am">11:30am</option>
+  <option value="12pm">12pm</option>
+  <option value="12:30pm">12:30pm</option>
+  <option value="1pm">1pm</option>
+  <option value="1:30pm">1:30pm</option>
+  <option value="2pm">2pm</option>
+  <option value="2:30pm">2:30pm</option>
+  <option value="3pm">3pm</option>
+  <option value="3:30pm">3:30pm</option>
+  <option value="4pm">4pm</option>
+  <option value="4:30pm">4:30pm</option>
+  <option value="5pm">5pm</option>
+  <option value="5:30pm">5:30pm</option>
+  <option value="6pm">6pm</option>
+  <option value="6:30pm">6:30pm</option>
+  <option value="7pm">7pm</option>
+  <option value="7:30pm">7:30pm</option>
+  <option value="8pm">8pm</option>
+</select>
+</p>
+<p>
+<!-- Button to delete task and its day, time, description, and subject from the calendar and to-do list. -->
+    <br><button type="button" id="deleteTask" onclick="deleteTask()">delete this task</button><br><br><br>
+    
+<!-- Button to delete all tasks from calendar and array. -->
+    <button type="button" id="deletearray" onclick="deleteArray()">reset all tasks</button><br><br>
+</p>
+
+<!-- Table cells with fixed day row and time column. The rest of the cells are editable. -->
+
+<table style="width:100%">
+  <tr>
+    <th>time</th>
+   	<th id="a1">sunday</th>
+    <th id="a2">monday</th>
+   	<th id="a3">tuesday</th>
+    <th id="a4">wednesday</th>
+    <th id="a5">thursday</th>
+    <th id="a6">friday</th>
+    <th id="a7">saturday</th>
+  </tr>
+  <tr id="8am">
+    <td>8:00 am</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+  </tr>
+  <tr id="8:30am">
+    <td>8:30 am</td>
+    <td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+  </tr>
+  <tr id="9am">
+    <td>9:00am</td>
+	<td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+  </tr>
+  <tr id="9:30am">
+    <td>9:30 am</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+	<td contenteditable="true"></td>
+  </tr>
+  <tr id="10am">
+    <td>10:00 am</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="10:30am">
+    <td>10:30 am</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="11am">
+    <td>11:00 am</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="11:30am">
+    <td>11:30 am</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="12pm">
+    <td>12:00 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="12:30pm">
+    <td>12:30 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="1pm">
+    <td>1:00 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="1:30pm">
+    <td>1:30 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="2pm">
+    <td>2:00 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="2:30pm">
+    <td>2:30 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="3pm">
+    <td>3:00 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="3:30pm">
+    <td>3:30 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="4pm">
+    <td>4:00 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="4:30pm">
+    <td>4:30 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr>
+    <td id="5pm">5:00 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="5:30pm">
+    <td>5:30 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="6pm">
+    <td>6:00 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="6:30pm">
+    <td>6:30 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="7pm">
+    <td>7:00 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="7:30pm">
+    <td>7:30 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr id="8pm">
+    <td>8:00 pm</td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+</table>
+    
+</div>
+<!-- Right-hand column for play link and working hours reminder. -->
+  <div class="column side">
+    <h2>stay in the moment...</h2>
+      <br>
+      <p id="outsideHours"> </p>
+  <br><p>stuck? let's <a href="https://www.cognifit.com/brain-games" target="_blank">play!</a></p>
+  </div>
+</div>
+  
+<script src="webcalScript.js"></script>
+</body>
+</html>
