@@ -1,4 +1,4 @@
-/* BreathingComponent.css */
+/* Style for the breathing exercises in the form of a list */
 .list {
     list-style: none;
     padding: 0;
@@ -6,7 +6,7 @@
   
   li {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out; /* Animation shorthand */
   }
   
   li.visible {

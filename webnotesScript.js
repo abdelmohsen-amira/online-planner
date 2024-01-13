@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import BreathingComponent from './breathingComponent';
+
 //This function uses the download attribute of the element a in order to download the input of the textarea element as a txt file. The target property of the event interface refers to the objeect onto which the event was dispatched. The last function is called at the event of the file loading. It gets the text content of the loaded file and inputs it as if the user wrote it in the text area. I used UTF-8 because it covers a wide variety of Unicode characters and allows the client to write freely.
 function saveTextAsFile(){
     var savedNotes = document.getElementById("inputSavedNotes").value;
@@ -30,3 +34,15 @@ function loadFileAsText(){
     };
     fileReader.readAsText(fileToLoad, "UTF-8");
 }
+
+const webnotesScript = () => {
+    return (
+      <div>
+        <BreathingComponent />
+      </div>
+    );
+  };
+  
+  ReactDOM.render(<webnotesScript />, document.getElementById('root'));
+
+  export default webnotesScript;

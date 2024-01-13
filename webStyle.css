@@ -90,11 +90,12 @@
 
 
 /* Style for website layout */
+body
 {
   box-sizing: border-box;
 }
 /* Style for the body of each webpage */
-webBody {
+.webBody {
   margin: 0;
 }
 
@@ -140,8 +141,8 @@ webBody {
 }
 /* Style for the middle column on all of the webpages */
 .column.middle {
-  width: 50%;
-background-color: #2D81B3;
+  	width: 50%;
+	background-color: #2D81B3;
     color: white;
 }
 /* Style for clear floats after the columns */
